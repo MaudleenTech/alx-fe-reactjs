@@ -4,6 +4,9 @@ import RecipeList from "./components/RecipeList";
 import AddRecipeForm from "./components/AddRecipeForm";
 import RecipeDetails from "./components/RecipeDetails";
 import { useParams } from "react-router-dom";
+import FavoritesList from "./components/FavoritesList";
+import RecommendationsList from "./components/RecommendationsList";
+import { useRecipeStore } from "./components/recipeStore";
 
 function App() {
   return (
@@ -19,6 +22,8 @@ function App() {
                 <SearchBar />
                 <AddRecipeForm />
                 <RecipeList />
+                <FavoritesList />
+                <RecommendationsList />
               </div>
             </>
           }
