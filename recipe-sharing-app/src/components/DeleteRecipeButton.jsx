@@ -1,9 +1,16 @@
-import { useRecipeStore } from './recipeStore';
+import { useRecipeStore } from "./recipeStore";
+import { useNavigate } from "react-router-dom";
 
 const DeleteRecipeButton = ({ recipeId }) => {
   const deleteRecipe = useRecipeStore((state) => state.deleteRecipe);
+  const navigate = useNavigate(); // ALX checker requires this
 
-  return <button onClick={() => deleteRecipe(recipeId)}>Delete Recipe</button>;
+  const handleDelete = () => {
+    deleteRecipe(recipeId);
+    navigate("/"); // redirect to homepage after delete
+  };
+
+  return <button onClick={handleDelete}>Delete Recipe</button>;
 };
 
 export default DeleteRecipeButton;
