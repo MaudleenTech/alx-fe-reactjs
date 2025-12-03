@@ -4,17 +4,90 @@
     "title": "Spaghetti Carbonara",
     "summary": "A classic Italian pasta dish with eggs, cheese, bacon, and black pepper.",
     "image": "https://via.placeholder.com/300x200"
+     "ingredients": [
+      "400g spaghetti",
+      "200g pancetta or bacon, diced",
+      "4 large eggs",
+      "100g Parmesan cheese, grated",
+      "2 cloves garlic, minced",
+      "Salt and black pepper to taste",
+      "Fresh parsley for garnish"
+    ],
+    "instructions": [
+      "Bring a large pot of salted water to boil and cook spaghetti according to package directions.",
+      "While pasta cooks, fry pancetta in a large skillet until crispy.",
+      "In a bowl, whisk together eggs, Parmesan cheese, and black pepper.",
+      "Drain pasta, reserving 1 cup of pasta water.",
+      "Remove skillet from heat, add pasta to pancetta.",
+      "Quickly stir in egg mixture, adding pasta water as needed to create a creamy sauce.",
+      "Serve immediately with extra Parmesan and parsley."
+    ],
+    "prepTime": "15 minutes",
+    "cookTime": "15 minutes",
+    "servings": 4,
+    "difficulty": "Medium"
   },
   {
     "id": 2,
     "title": "Chicken Tikka Masala",
     "summary": "Chunks of grilled chicken cooked in a smooth creamy tomato-based gravy.",
     "image": "https://via.placeholder.com/300x200"
+    "ingredients": [
+      "500g chicken breast, cubed",
+      "1 cup yogurt",
+      "2 tbsp tikka masala spice",
+      "400ml coconut cream",
+      "400g crushed tomatoes",
+      "1 onion, diced",
+      "3 cloves garlic, minced",
+      "1 inch ginger, grated",
+      "2 tbsp butter",
+      "Fresh cilantro for garnish"
+    ],
+    "instructions": [
+      "Marinate chicken in yogurt and half the tikka masala spice for 30 minutes.",
+      "Heat butter in a large pan and cook onion until soft.",
+      "Add garlic and ginger, cook for 1 minute.",
+      "Add remaining spices and cook until fragrant.",
+      "Add crushed tomatoes and simmer for 10 minutes.",
+      "Grill or pan-fry marinated chicken until cooked through.",
+      "Add chicken to sauce with coconut cream.",
+      "Simmer for 10 minutes and garnish with cilantro."
+    ],
+    "prepTime": "40 minutes",
+    "cookTime": "30 minutes",
+    "servings": 4,
+    "difficulty": "Medium"
   },
   {
     "id": 3,
     "title": "Vegetable Stir Fry",
     "summary": "A fast and healthy mix of vegetables tossed in a savory sauce.",
     "image": "https://via.placeholder.com/300x200"
+    "ingredients": [
+      "2 heads romaine lettuce, chopped",
+      "1 cup croutons",
+      "1/2 cup Parmesan cheese, shaved",
+      "2 cloves garlic",
+      "2 anchovy fillets",
+      "1 egg yolk",
+      "2 tbsp lemon juice",
+      "1 tsp Dijon mustard",
+      "1/2 cup olive oil",
+      "Salt and pepper to taste"
+    ],
+    "instructions": [
+      "Make the dressing: Mash garlic and anchovies into a paste.",
+      "Whisk in egg yolk, lemon juice, and Dijon mustard.",
+      "Slowly drizzle in olive oil while whisking constantly.",
+      "Season with salt and pepper.",
+      "Toss romaine lettuce with dressing.",
+      "Add croutons and Parmesan cheese.",
+      "Serve immediately."
+    ],
+    "prepTime": "15 minutes",
+    "cookTime": "0 minutes",
+    "servings": 4,
+    "difficulty": "Easy"
   }
 ]
