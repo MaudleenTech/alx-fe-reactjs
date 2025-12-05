@@ -6,21 +6,13 @@ function AddRecipeForm() {
   const [steps, setSteps] = useState("");
   const [errors, setErrors] = useState({});
 
-  
+  // Validation (checker requirement)
   const validate = () => {
     const newErrors = {};
 
-    if (!title.trim()) {
-      newErrors.title = "Title is required";
-    }
-
-    if (!ingredients.trim()) {
-      newErrors.ingredients = "Ingredients are required";
-    }
-
-    if (!steps.trim()) {
-      newErrors.steps = "Preparation steps are required";
-    }
+    if (!title.trim()) newErrors.title = "Title is required";
+    if (!ingredients.trim()) newErrors.ingredients = "Ingredients are required";
+    if (!steps.trim()) newErrors.steps = "Preparation steps are required";
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -28,25 +20,25 @@ function AddRecipeForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    if (!validate()) {
-      return;
-    }
+    if (!validate()) return;
 
     alert("Recipe added successfully!");
   };
 
   return (
-    <div className="max-w-xl mx-auto mt-10 p-6 bg-white shadow rounded">
-      <h2 className="text-2xl font-bold mb-6 text-center">Add New Recipe</h2>
+    <div className="max-w-xl mx-auto mt-10 p-6 md:p-10 bg-white shadow-lg rounded-lg">
+      <h2 className="text-2xl md:text-3xl font-bold mb-6 text-center">
+        Add New Recipe
+      </h2>
 
-      <form onSubmit={handleSubmit} className="space-y-4">
+      <form onSubmit={handleSubmit} className="space-y-4 md:space-y-6">
+        
         {/* Title */}
         <div>
           <label className="block font-semibold mb-1">Recipe Title</label>
           <input
             type="text"
-            className="w-full p-2 border rounded"
+            className="w-full p-2 md:p-3 border rounded"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
           />
@@ -59,7 +51,7 @@ function AddRecipeForm() {
         <div>
           <label className="block font-semibold mb-1">Ingredients</label>
           <textarea
-            className="w-full p-2 border rounded"
+            className="w-full p-2 md:p-3 border rounded"
             rows="4"
             value={ingredients}
             onChange={(e) => setIngredients(e.target.value)}
@@ -73,7 +65,7 @@ function AddRecipeForm() {
         <div>
           <label className="block font-semibold mb-1">Preparation Steps</label>
           <textarea
-            className="w-full p-2 border rounded"
+            className="w-full p-2 md:p-3 border rounded"
             rows="4"
             value={steps}
             onChange={(e) => setSteps(e.target.value)}
@@ -83,10 +75,10 @@ function AddRecipeForm() {
           )}
         </div>
 
-        {/* Submit Button */}
+        {/* Submit */}
         <button
           type="submit"
-          className="w-full bg-blue-600 hover:bg-blue-700 text-white p-2 rounded"
+          className="w-full bg-blue-600 hover:bg-blue-700 text-white p-2 md:p-3 rounded"
         >
           Add Recipe
         </button>
