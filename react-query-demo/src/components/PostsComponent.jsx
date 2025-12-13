@@ -12,6 +12,7 @@ const PostsComponent = () => {
   const {
     data: posts,
     isLoading,
+    isError,
     error,
     refetch,
   } = useQuery("posts", fetchPosts);
@@ -20,8 +21,8 @@ const PostsComponent = () => {
     return <p>Loading posts...</p>;
   }
 
-  if (error) {
-    return <p>Error fetching posts</p>;
+  if (isError) {
+    return <p>Error fetching posts: {error.message}</p>;
   }
 
   return (
