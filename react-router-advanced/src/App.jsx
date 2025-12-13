@@ -8,6 +8,7 @@ import ProfileSettings from "./components/ProfileSettings";
 import User from "./components/User";
 import Login from "./components/Login";
 import ProtectedRoute from "./components/ProtectedRoute";
+import BlogPost from "./components/BlogPost"; // <-- import BlogPost
 
 function App() {
   const [isAuth, setIsAuth] = useState(false);
@@ -28,13 +29,15 @@ function App() {
             </ProtectedRoute>
           }
         >
-          {/* Nested routes */}
           <Route path="details" element={<ProfileDetails />} />
           <Route path="settings" element={<ProfileSettings />} />
         </Route>
 
         {/* Dynamic User route */}
         <Route path="/user/:userId" element={<User />} />
+
+        {/* Dynamic Blog route */}
+        <Route path="/blog/:id" element={<BlogPost />} />
       </Routes>
     </BrowserRouter>
   );
