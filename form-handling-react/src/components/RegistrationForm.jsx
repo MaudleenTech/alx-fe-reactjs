@@ -9,56 +9,56 @@ const RegistrationForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (!username || !email || !password) {
-      setError("All fields are required");
-      return;
+    const newErrors = {};
+
+    if (!username) {
+      newErrors.username = "Username is required";
     }
 
-    setError("");
+    if (!email) {
+      newErrors.email = "Email is required";
+    }
 
-    // Mock API submission
-    console.log({
-      username,
-      email,
-      password,
-    });
+    if (!password) {
+      newErrors.password = "Password is required";
+    }
 
-    alert("User registered successfully!");
+    setErrors(newErrors);
+
+    if (Object.keys(newErrors).length === 0) {
+      console.log("Form submitted:", { username, email, password });
+    }
   };
 
   return (
-    <form onSubmit={handleSubmit} className="max-w-md mx-auto p-6 bg-white shadow rounded">
-      <h2 className="text-2xl font-bold mb-4">Register (Controlled)</h2>
-
-      {error && <p className="text-red-500 mb-3">{error}</p>}
+    <form onSubmit={handleSubmit}>
+      <h2>User Registration</h2>
 
       <input
         type="text"
         placeholder="Username"
         value={username}
         onChange={(e) => setUsername(e.target.value)}
-        className="w-full p-2 border mb-3"
       />
+      {errors.username && <p>{errors.username}</p>}
 
       <input
         type="email"
         placeholder="Email"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
-        className="w-full p-2 border mb-3"
       />
+      {errors.email && <p>{errors.email}</p>}
 
       <input
         type="password"
         placeholder="Password"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
-        className="w-full p-2 border mb-3"
       />
+      {errors.password && <p>{errors.password}</p>}
 
-      <button className="bg-blue-500 text-white px-4 py-2 rounded w-full">
-        Register
-      </button>
+      <button type="submit">Register</button>
     </form>
   );
 };
