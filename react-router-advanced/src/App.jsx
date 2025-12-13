@@ -7,18 +7,14 @@ import User from "./components/User";
 import BlogPost from "./components/BlogPost";
 import Login from "./components/Login";
 import ProtectedRoute from "./components/ProtectedRoute";
-import useAuth from "./hooks/useAuth";
 
 function App() {
-  const { isAuth, login } = useAuth();
-
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login login={login} />} />
+        <Route path="/login" element={<Login />} />
 
-        {/* Protected Profile route */}
         <Route
           path="/profile/*"
           element={
@@ -31,10 +27,7 @@ function App() {
           <Route path="settings" element={<ProfileSettings />} />
         </Route>
 
-        {/* Dynamic User route */}
         <Route path="/user/:userId" element={<User />} />
-
-        {/* Dynamic Blog route */}
         <Route path="/blog/:id" element={<BlogPost />} />
       </Routes>
     </BrowserRouter>
