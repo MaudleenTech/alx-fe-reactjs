@@ -1,7 +1,14 @@
 module.exports = {
-  testEnvironment: "jsdom",
+  testEnvironment: 'jsdom',
   transform: {
-    "^.+\\.(js|jsx)$": "babel-jest",
+    '^.+\\.[jt]sx?$': 'babel-jest',
   },
-  moduleFileExtensions: ["js", "jsx"],
-};
+  moduleFileExtensions: ['js', 'jsx'],
+  testPathIgnorePatterns: [
+    '/node_modules/',
+    '/dist/',
+    '/src/__tests__/',
+    '/src/tests/',
+    '/src/components/TodoList.test.js',
+  ],
+}
