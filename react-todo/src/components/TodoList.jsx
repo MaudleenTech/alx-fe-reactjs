@@ -8,23 +8,19 @@ const TodoList = () => {
   ]);
 
   const addTodo = (text) => {
-    setTodos([
-      ...todos,
-      { id: Date.now(), text, completed: false },
-    ]);
+    setTodos([...todos, { id: Date.now(), text, completed: false }]);
   };
 
   const toggleTodo = (id) => {
     setTodos(
       todos.map((todo) =>
-        todo.id === id
-          ? { ...todo, completed: !todo.completed }
-          : todo
+        todo.id === id ? { ...todo, completed: !todo.completed } : todo
       )
     );
   };
 
-  const deleteTodo = (id) => {
+  const deleteTodo = (id, e) => {
+    e.stopPropagation(); // Prevent toggle when deleting
     setTodos(todos.filter((todo) => todo.id !== id));
   };
 
@@ -35,17 +31,28 @@ const TodoList = () => {
 
       <ul>
         {todos.map((todo) => (
-          <li key={todo.id}>
+          <li
+            key={todo.id}
+            data-testid={`todo-${todo.id}`}
+            style={{ marginBottom: "8px" }}
+          >
             <span
               onClick={() => toggleTodo(todo.id)}
               style={{
                 textDecoration: todo.completed ? "line-through" : "none",
                 cursor: "pointer",
               }}
+              data-testid={`todo-text-${todo.id}`}
             >
               {todo.text}
             </span>
-            <button onClick={() => deleteTodo(todo.id)}>Delete</button>
+            <button
+              onClick={(e) => deleteTodo(todo.id, e)}
+              data-testid={`delete-${todo.id}`}
+              style={{ marginLeft: "8px" }}
+            >
+              Delete
+            </button>
           </li>
         ))}
       </ul>
