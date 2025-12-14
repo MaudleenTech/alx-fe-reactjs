@@ -1,36 +1,29 @@
-import { defineConfig } from "eslint-define-config";
+import js from '@eslint/js'
+import globals from 'globals'
+import reactHooks from 'eslint-plugin-react-hooks'
+import reactRefresh from 'eslint-plugin-react-refresh'
+import { defineConfig, globalIgnores } from 'eslint/config'
 
-export default defineConfig({
-  root: true,
-  parser: "@babel/eslint-parser",
-  parserOptions: {
-    requireConfigFile: false, // Allows using babel parser without babel config
-    ecmaVersion: 2025,
-    sourceType: "module",
-    ecmaFeatures: {
-      jsx: true,
+export default defineConfig([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{js,jsx}'],
+    extends: [
+      js.configs.recommended,
+      reactHooks.configs.flat.recommended,
+      reactRefresh.configs.vite,
+    ],
+    languageOptions: {
+      ecmaVersion: 2020,
+      globals: globals.browser,
+      parserOptions: {
+        ecmaVersion: 'latest',
+        ecmaFeatures: { jsx: true },
+        sourceType: 'module',
+      },
+    },
+    rules: {
+      'no-unused-vars': ['error', { varsIgnorePattern: '^[A-Z_]' }],
     },
   },
-  env: {
-    browser: true,
-    es2025: true,
-    node: true,
-    jest: true, // Add this to recognize Jest globals
-  },
-  plugins: ["react", "react-hooks", "jsx-a11y"],
-  extends: [
-    "eslint:recommended",
-    "plugin:react/recommended",
-    "plugin:react-hooks/recommended",
-    "plugin:jsx-a11y/recommended",
-  ],
-  settings: {
-    react: {
-      version: "detect",
-    },
-  },
-  rules: {
-    // Your custom rules
-    "react/react-in-jsx-scope": "off",
-  },
-});
+])
